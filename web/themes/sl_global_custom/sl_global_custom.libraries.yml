@@ -1,0 +1,8 @@
+style:
+  css:
+    theme:
+      stylesheets/bootstrap.min.css: {}
+  js:
+    javascripts/bootstrap.bundle.min.js: {}
+    
+    
