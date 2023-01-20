@@ -21,3 +21,4 @@
 /web/sites/*/tmp
 /web/sites/*/cache
 /web/sites/default/settings.php
+/config
