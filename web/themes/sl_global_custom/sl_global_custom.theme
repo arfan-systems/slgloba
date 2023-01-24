@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
 function sl_global_custom_theme_suggestions_page_alter(&$suggestions,&$variables) {
     if($node = \Drupal::request()->attributes->get('node')){
         if(is_object($node)){
@@ -8,10 +11,13 @@ function sl_global_custom_theme_suggestions_page_alter(&$suggestions,&$variables
     }
 }
 
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ */
 function sl_global_custom_theme_suggestions_node_alter(&$suggestions,&$variables) {
     if($node = \Drupal::request()->attributes->get('node')){
-        if(is_object($node)){
-            $suggestions[] = 'node__'. $node->field_template_name->value;
+        if(is_object($node) && !empty($node->field_template_name->value)){
+            $suggestions[] = 'node__'. str_replace([' ','-'],'_',$node->field_template_name->value);
         }
     }
 }
