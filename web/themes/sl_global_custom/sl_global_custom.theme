@@ -1,0 +1,17 @@
+<?php
+
+function sl_global_custom_theme_suggestions_page_alter(&$suggestions,&$variables) {
+    if($node = \Drupal::request()->attributes->get('node')){
+        if(is_object($node)){
+            $suggestions[] = 'page__'. $node->getType();
+        }
+    }
+}
+
+function sl_global_custom_theme_suggestions_node_alter(&$suggestions,&$variables) {
+    if($node = \Drupal::request()->attributes->get('node')){
+        if(is_object($node)){
+            $suggestions[] = 'node__'. $node->field_template_name->value;
+        }
+    }
+}
