@@ -44,46 +44,68 @@
  */
 #}
 {% include '@sysltd/partial/header.html.twig' %}
+
 <div class="layout-container">
 
-  <header role="banner">
-    {{ page.header }}
-  </header>
+  {% block header %}
+    <header role="banner">
+      {{ page.header }}
+    </header>
+  {% endblock %}
 
-  {{ page.primary_menu }}
-  {{ page.secondary_menu }}
+  {% block primary_menu %}
+    {{ page.primary_menu }}
+  {% endblock %}
 
-  {{ page.breadcrumb }}
+  {% block secondary_menu %}
+    {{ page.secondary_menu }}
+  {% endblock %}
 
-  {{ page.highlighted }}
+  {% block breadcrumb %}
+    {{ page.breadcrumb }}
+  {% endblock %}
 
-  {{ page.help }}
+  {% block highlighted %}
+    {{ page.highlighted }}
+  {% endblock %}
+
+  {% block help %}
+    {{ page.help }}
+  {% endblock %}
 
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
+    {% block content %}
     <div class="layout-content">
       {{ page.content }}
     </div>{# /.layout-content #}
+    {% endblock %}
 
     {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
+      {% block sidebar_first %}
+        <aside class="layout-sidebar-first" role="complementary">
+          {{ page.sidebar_first }}
+        </aside>
+      {% endblock %}
     {% endif %}
 
     {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
+      {% block sidebar_second %}
+        <aside class="layout-sidebar-second" role="complementary">
+          {{ page.sidebar_second }}
+        </aside>
+      {% endblock %}
     {% endif %}
 
   </main>
 
   {% if page.footer %}
-    <footer role="contentinfo">
-      {{ page.footer }}
-    </footer>
+    {% block footer %}
+      <footer role="contentinfo">
+        {{ page.footer }}
+      </footer>
+    {% endblock %}
   {% endif %}
 
 </div>{# /.layout-container #}
