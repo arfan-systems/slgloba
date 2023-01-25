@@ -1,4 +1,4 @@
-name: Sl-Global
+name: SysLtd
 type: theme
 base theme: stable9
 description: 'Custom Theme for css and javascript'
@@ -6,7 +6,7 @@ package: Core
 core_version_requirement: ^8 || ^9 || ^10
 
 libraries:
-- sl_global_custom/style
+- sysltd/style
 
 libraries-override:
   system/base: false
