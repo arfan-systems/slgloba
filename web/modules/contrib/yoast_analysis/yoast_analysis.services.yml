@@ -1,0 +1,9 @@
+services:
+  yoast_analysis.route_subscriber:
+    class: Drupal\yoast_analysis\Routing\RouteSubscriber
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: event_subscriber }
+  yoast_analysis.text_extractor:
+    class: Drupal\yoast_analysis\TextExtractor
+    arguments: ['@entity_type.manager', '@renderer', '@service_container']

@@ -17,6 +17,7 @@
     "require": {
         "composer/installers": "^2.0",
         "drupal/admin_toolbar": "^3.3",
+        "drupal/cdn": "^4.0",
         "drupal/core-composer-scaffold": "^10.0",
         "drupal/core-project-message": "^10.0",
         "drupal/core-recommended": "^10.0",
@@ -26,6 +27,7 @@
         "drupal/search_api": "^1.28",
         "drupal/smtp": "^1.2",
         "drupal/webform": "^6.1",
+        "drupal/yoast_analysis": "^1.1",
         "drupal/yoast_seo": "^1.8",
         "drush/drush": "^11.4"
     },
