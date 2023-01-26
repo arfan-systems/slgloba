@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_form_FORM_ID_alter() for system_theme_settings.
  */
-function sl_global_custom_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+function sysltd_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
 
     $form['core'] = [
                         '#type'=>'vertical_tabs',
