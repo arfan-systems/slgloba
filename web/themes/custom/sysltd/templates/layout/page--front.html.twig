@@ -43,73 +43,10 @@
  * @see html.html.twig
  */
 #}
-
-<div class="layout-container">
-
-  {% block header %}
-    {% include '@sysltd/partial/header.html.twig' %}
-  {% endblock %}
-
-  {% block banner %}
-  {% endblock %}
-
-  {% block primary_menu %}
-    {{ page.primary_menu }}
-  {% endblock %}
-
-  {% block secondary_menu %}
-    {{ page.secondary_menu }}
-  {% endblock %}
-
-  {% block breadcrumb %}
-    {{ page.breadcrumb }}
-  {% endblock %}
-
-  {% block highlighted %}
-    {{ page.highlighted }}
-  {% endblock %}
-
-  {% block help %}
-    {{ page.help }}
-  {% endblock %}
-
-  <main role="main">
-    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
-    {% block content %}
-    <div class="layout-content">
-      {{ page.content }}
-    </div>{# /.layout-content #}
+{% extends "page.html.twig" %}
+    {% block banner %}
+        {% if page.banner %}
+            {{ page.banner }}
+        {% endif %}
     {% endblock %}
-
-    {% if page.sidebar_first %}
-      {% block sidebar_first %}
-        <aside class="layout-sidebar-first" role="complementary">
-          {{ page.sidebar_first }}
-        </aside>
-      {% endblock %}
-    {% endif %}
-
-    {% if page.sidebar_second %}
-      {% block sidebar_second %}
-        <aside class="layout-sidebar-second" role="complementary">
-          {{ page.sidebar_second }}
-        </aside>
-      {% endblock %}
-    {% endif %}
-
-  </main>
-
-  {% if page.footer %}
-    {% block footer %}
-      {% include '@sysltd/partial/footer.html.twig' %}
-    {% endblock %}
-  {% endif %}
-
-  {% if page.hiiden %}
-    {% block hiiden %}
-      {{ page.hiiden }}
-    {% endblock %}
-  {% endif %}
-</div>{# /.layout-container #}
 

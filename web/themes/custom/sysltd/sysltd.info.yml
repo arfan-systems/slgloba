@@ -15,6 +15,8 @@ libraries-override:
 
 regions:
   header: Header
+  banner: 'Home banner'
+  hidden: 'Hidden'
   primary_menu: 'Primary menu'
   secondary_menu: 'Secondary menu'
   page_top: 'Page top'
