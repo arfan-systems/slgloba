@@ -15,7 +15,8 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-This is careers home page view
+<hr style="width:100%;text-align:left;margin-left:0">
+This is our partner home page view
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
@@ -26,6 +27,7 @@ This is careers home page view
     ]
   %}
   <p><b>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</b></p>
+  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_sub_heading }}'] }}</p>
   <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_link_button }}'] }}</p>
+  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}</p>
 {% endfor %}
