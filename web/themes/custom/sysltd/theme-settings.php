@@ -82,6 +82,13 @@ function sysltd_form_system_theme_settings_alter(&$form, FormStateInterface $for
         '#group'=> 'general'
     ];
 
+    $form['general']['youtube'] = [
+        '#type'=>'textfield',
+        '#title'=> t('Youtube'),
+        '#default_value'=> theme_get_setting('youtube'),
+        '#group'=> 'general'
+    ];
+
 
     $form['actions']['submit']['#value'] = t('Save');
 }
