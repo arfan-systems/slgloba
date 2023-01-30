@@ -32,6 +32,6 @@ This is our partner home page view
   <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}</p>
   {% set images = row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}']|split(',') %}
   {% for img in images %}
-    {{ img }}<br />
+     {{ img }}<br />
   {% endfor %}
 {% endfor %}
