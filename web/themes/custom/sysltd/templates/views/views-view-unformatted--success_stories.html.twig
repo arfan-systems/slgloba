@@ -16,7 +16,7 @@
  */
 #}
 <hr style="width:100%;text-align:left;margin-left:0">
-This is our partner home page view
+This is success story listing block
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
@@ -27,11 +27,5 @@ This is our partner home page view
     ]
   %}
   <p><b>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</b></p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_sub_heading }}'] }}</p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>
   <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}</p>
-  {% set images = row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}']|split(',') %}
-  {% for img in images %}
-     {{ img }}<br />
-  {% endfor %}
 {% endfor %}
