@@ -6,7 +6,10 @@
 function sysltd_theme_suggestions_page_alter(&$suggestions,&$variables) {
     if($node = \Drupal::request()->attributes->get('node')){
         if(is_object($node)){
-            $suggestions[] = 'page__'. $node->getType();
+            if(!empty($node->field_template_name->value))
+                $suggestions[] = 'page__'. $node->field_template_name->value;
+            else
+                $suggestions[] = 'page__'. $node->getType();
         }
     }
 }
