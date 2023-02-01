@@ -46,8 +46,20 @@
 {% extends "page.html.twig" %}
 {% block content %}
     <!-- {{ node.body.value }} //This is how to get node fields on this page -->
-    == {{ content.field_content_type[0]['#title'] }} ==<br />
-    <b>This is content type specific layout</b>
+    Title == {{ node.title.value }} ==<br />
+    Body == {{ node.body.value }} ==<br />
+    Button text == {{ node.field_button_text.value }} ==<br />
+    Content Type== {{ node.field_content_type.entity.name.value }} == <br />
+    File == {{ file_url(node.field_file.entity.uri.value) }} ==<br />
+    Image == {{ file_url(node.field_image.entity.uri.value) }} ==<br />
+    Link button== {{ node.field_link_button.value.uri|render }} ==<br />
+    Meta Tag == {{ node.field_metatag.entity.name.value }} ==<br />
+    Order== {{ node.field_order.value }} ==<br />
+    Page == {{ node.field_page.entity.name.value }} ==<br />
+    Section == {{ node.field_section.entity.name.value }} ==<br />
+    Tags == {{ node.field_tags.entity.name.value }} ==<br />
+    Template name== {{ node.field_template_name.value }} ==<br />
+    <b>This is content type specific (Case study) layout</b>
     <div class="layout-content">
     {{ page.content }}
     </div>{# /.layout-content #}
