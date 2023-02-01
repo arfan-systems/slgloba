@@ -115,8 +115,10 @@ class ComposerStaticInit0127606675202ae50baf2ed4cc9be3fc
             'Drupal\\Composer\\Plugin\\ProjectMessage\\' => 38,
             'Drupal\\Component\\' => 17,
             'DrupalCodeGenerator\\' => 20,
+            'Doctrine\\Persistence\\' => 21,
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
+            'Doctrine\\Common\\' => 16,
             'Dflydev\\DotAccessData\\' => 22,
         ),
         'C' => 
@@ -375,6 +377,10 @@ class ComposerStaticInit0127606675202ae50baf2ed4cc9be3fc
         array (
             0 => __DIR__ . '/..' . '/chi-teck/drupal-code-generator/src',
         ),
+        'Doctrine\\Persistence\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/persistence/src/Persistence',
+        ),
         'Doctrine\\Common\\Lexer\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
@@ -382,6 +388,11 @@ class ComposerStaticInit0127606675202ae50baf2ed4cc9be3fc
         'Doctrine\\Common\\Annotations\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
+            1 => __DIR__ . '/..' . '/doctrine/common/src',
         ),
         'Dflydev\\DotAccessData\\' => 
         array (
