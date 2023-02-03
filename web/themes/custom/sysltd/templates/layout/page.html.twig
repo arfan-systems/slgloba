@@ -50,15 +50,16 @@
     {% include '@sysltd/partial/header.html.twig' %}
   {% endblock %}
 
+  {% block primary_menu %}
+    {{ page.primary_menu }}
+  {% endblock %}
+
   {% block banner %}
     {% if page.banner %}
       {{ page.banner }}
     {% endif %}
   {% endblock %}
 
-  {% block primary_menu %}
-    {{ page.primary_menu }}
-  {% endblock %}
 
   {% block secondary_menu %}
     {{ page.secondary_menu }}
