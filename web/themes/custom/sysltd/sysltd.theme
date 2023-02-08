@@ -29,8 +29,8 @@ function sysltd_theme_suggestions_node_alter(&$suggestions,&$variables) {
  */
 
 function sysltd_preprocess_menu(&$variables) {
-  $updated_variable = processMenu($variables['items']);
-  $variables['items'] = $updated_variable;
+  $updated_items     = processMenu($variables['items']);
+  $variables['items']   = $updated_items;
 }
 
 /**
