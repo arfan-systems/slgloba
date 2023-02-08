@@ -24,3 +24,54 @@ function sysltd_theme_suggestions_node_alter(&$suggestions,&$variables) {
         }
     }
 }
+/**
+ * Implements sysltd_preprocess_menu().
+ */
+
+function sysltd_preprocess_menu(&$variables) {
+  $updated_variable = processMenu($variables['items']);
+  $variables['items'] = $updated_variable;
+}
+
+/**
+ * @param array $items
+ * @return array
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function processMenu(array &$items) {
+    $alias_manager = \Drupal::service('path_alias.manager');
+    $entity_type_manager = \Drupal::entityTypeManager();
+    foreach ($items as &$item) {
+        $associated_node = [];
+        if(!empty($item['url'])) {
+            $node_url = $item['url']->toString();
+            $system_path = $alias_manager->getPathByAlias($node_url);
+            $node_id = substr($system_path, 6);
+            if (!empty($node_id)) {
+                $node = $entity_type_manager->getStorage('node')->load($node_id);
+                if(!empty($node)) {
+                    $node_body = $node_image = '';
+                    $node_title = $node->getTitle();
+                    $node_id    = $node->id();
+                    $node_type  = $node->getType();
+                    if($node->hasField('body')) {
+                        $node_body  = $node->get('body')->getValue();
+                        if(!empty($node_body))
+                            $node_body  = strip_tags($node_body[0]['value']);
+                    }
+                    if($node->hasField('field_image')) {
+                        $image = $node->get('field_image')->first();
+                        $image_url = $image->entity->getFileUri();
+                        $node_image = \Drupal::service('file_url_generator')->generateAbsoluteString($image_url);
+                    }
+                    $associated_node = ['id'=>$node_id,'title'=>$node_title,'body' =>$node_body,'type'=>$node_type,'image'=>$node_image];
+                }
+            }
+        }
+        if (!empty($item['below']))
+            processMenu($item['below']);
+        $item['associated_node'] = $associated_node;
+    }
+    return $items;
+}

@@ -35,6 +35,9 @@
       <ul>
     {% endif %}
     {% for item in items %}
+      {% if item.associated_node %}
+        {{ dump(item.associated_node) }}
+      {% endif %}
       {% set rendered_content = item.content|without('')|render %}
       {% if item.content.field_image[0]["#markup"] %}
 {#        {{ dump(item.content) }}#}
