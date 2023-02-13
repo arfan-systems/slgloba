@@ -35,19 +35,14 @@
       <ul>
     {% endif %}
     {% for item in items %}
-      {% if item.associated_node %}
-        {{ dump(item.associated_node) }}
-      {% endif %}
-      {% set rendered_content = item.content|without('')|render %}
-      {% if item.content.field_image[0]["#markup"] %}
-{#        {{ dump(item.content) }}#}
-{#        {{ rendered_content }}#}
-{#      <img src="item.content.field_image[0]["#markup"]" />#}
-        <b>{{ item.content.field_image[0]["#markup"] }} --
-          {{ item.content.field_title[0]["#context"].value }}</b>
-      {% endif %}
+{#      {{ dump(item.content.field_position[0]["#markup"]) }}#}
+
       <li{{ item.attributes }}>
-        {{ link(item.title, item.url) }}
+        {{ link(item.title, item.url) }} -- {{ item.content.field_position[0]["#markup"] }}
+        {% if item.associated_node %}
+          {{ dump(item.associated_node) }}
+        {% endif %}
+
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
