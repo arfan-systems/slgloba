@@ -24,6 +24,27 @@ function sysltd_theme_suggestions_node_alter(&$suggestions,&$variables) {
         }
     }
 }
+function sysltd_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+  dpm($block->getPluginId());exit;
+  if ($block->getPluginId() == 'modal_block') {
+    dpm("this function called!");
+    $build['#markup'] = '';
+
+    $block_manager = \Drupal::service('plugin.manager.block');
+    $blocks = array(
+      'block_plugin_id_1' => 'region_1',
+      'block_plugin_id_2' => 'region_2',
+      'block_plugin_id_3' => 'region_3',
+      // Add more blocks here.
+    );
+
+    foreach ($blocks as $plugin_id => $region) {
+      if ($instance = $block_manager->createInstance($plugin_id)) {
+        $build['#markup'] .= \Drupal::service('renderer')->renderRoot($instance->build());
+      }
+    }
+  }
+}
 /**
  * Implements sysltd_preprocess_menu().
  */
