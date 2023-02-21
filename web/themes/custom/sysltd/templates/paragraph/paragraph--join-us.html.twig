@@ -51,12 +51,19 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <!--
-      {% if content.field_heading %}
-        Heading of the paragraph - {{ content.field_heading[0]['#context']['value'] }}
+      {% if content.field_title %}
+        <b>Title</b> = {{ content.field_title[0]['#context']['value'] }}<br>
       {% endif %}
-      -->
-      {{ content }}
+      {% if content.field_description %}
+        <b>Description</b> = {{ content.field_description[0]['#context']['value'] }}<br>
+      {% endif %}
+      {% if content.field_link %}
+        <b>Link</b> = {{ content.field_link[0]['#context']['value'] }}<br>
+      {% endif %}
+      {% if content.field_image %}
+        <b>Image</b> = {{ content.field_image[0]['#context']['value'] }}
+      {% endif %}
+{#      {{ content }}#}
     {% endblock %}
   </div>
 {% endblock paragraph %}

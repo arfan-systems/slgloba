@@ -26,12 +26,9 @@ This is our partner block on home page
       default_row_class ? 'views-row',
     ]
   %}
-  <p><b>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</b></p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_sub_heading }}'] }}</p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}</p>
+  <p><b>Title</b> = {{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</p>
   {% set images = row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}']|split(',') %}
   {% for img in images %}
-     {{ img }}<br />
+    <b>Image</b> ={{ img }}<br />
   {% endfor %}
 {% endfor %}

@@ -26,8 +26,7 @@ This is services / offering block on home page
       default_row_class ? 'views-row',
     ]
   %}
-  <p><b>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ info }}'] }}</b></p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_sub_heading }}'] }}</p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_link_button }}'] }}</p>
+  <p><b>Title</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ info }}'] }}</p>
+  <p><b>Description</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>
+  <p><b>Link</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_link_button }}'] }}</p>
 {% endfor %}

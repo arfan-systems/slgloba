@@ -51,12 +51,52 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <!--
-      {% if content.field_heading %}
-        Heading of the paragraph - {{ content.field_heading[0]['#context']['value'] }}
-      {% endif %}
-      -->
-      {{ content }}
+
+        {% if content.field_title %}
+            <b>Title</b> - {{ content.field_title[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {% if content.field_title %}
+            <b>Description</b> - {{ content.field_description[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {% if content.field_link %}
+            <b>Link</b> - <a href="{{ content.field_link[0].url }}"> {{ content.field_link[0]["#title"] }}</a><br>
+        {% endif %}
+
+        {% if content.field_years %}
+            <b>Years</b> - {{ content.field_years[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {% if content.field_years_description %}
+            <b>Years Description</b> - {{ content.field_years_description[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {% if content.field_employee %}
+            <b>Employee</b> - {{ content.field_employee[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {% if content.field_employee_description %}
+            <b>Employee Description</b> - {{ content.field_employee_description[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {% if content.field_continents %}
+            <b>Continents</b> - {{ content.field_continents[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {% if content.field_continents_description %}
+            <b>Continents Description</b> - {{ content.field_continents_description[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {% if content.field_clients %}
+            <b>Clients</b> - {{ content.field_clients[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {% if content.field_clients_description %}
+            <b>Clients Description</b> - {{ content.field_clients_description[0]['#context']['value'] }}<br>
+        {% endif %}
+
+        {#      {{ content }}#}
     {% endblock %}
   </div>
 {% endblock paragraph %}

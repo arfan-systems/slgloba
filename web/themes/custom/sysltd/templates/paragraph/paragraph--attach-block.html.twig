@@ -39,7 +39,7 @@
  */
 #}
 <hr style="width:100%;text-align:left;margin-left:0">
-<b>Paragraph Template File</b>
+<b>Paragraph Template File - Block attachment</b>
 {%
   set classes = [
     'paragraph',
@@ -51,12 +51,7 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <!--
-      {% if content.field_heading %}
-        Heading of the paragraph - {{ content.field_heading[0]['#context']['value'] }}
-      {% endif %}
-      -->
-      {{ content }}
+      {{ content.field_select_block[0] }}
     {% endblock %}
   </div>
 {% endblock paragraph %}

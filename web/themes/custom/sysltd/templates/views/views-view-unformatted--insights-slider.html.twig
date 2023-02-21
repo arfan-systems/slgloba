@@ -26,9 +26,12 @@ This is insight block tpl file
       default_row_class ? 'views-row',
     ]
   %}
-  <p><b>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_content_type }}'] }}</b></p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_button_text }}'] }}</p>
-  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}</p>
+  <p><b>Type</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_content_type }}'] }}</p>
+  <p><b>Sub Heading</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_sub_heading }}'] }}</p>
+  <p><b>Sub Heading 2</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_section }}'] }}</p>
+  <p><b>Title</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</p>
+
+  <p><b>Description</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>
+  <p><b>Link Text</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_button_text }}'] }}</p>
+  <p><b>Image path</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}</p>
 {% endfor %}
