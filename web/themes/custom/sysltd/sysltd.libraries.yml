@@ -1,8 +1,16 @@
 style:
   css:
     theme:
-      stylesheets/bootstrap.min.css: {}
+      assets/css/fontawesome.css: {}
+      assets/css/icomoon.css: {}
+      assets/css/swiper-bundle.min.css: {}
+      assets/css/anicollection.css: {}
+      assets/css/style.css: {}
   js:
-    javascripts/bootstrap.bundle.min.js: {}
-    
-    
+    assets/js/jquery-3.6.3.min.js: {}
+    assets/js/bootstrap.bundle.min.js: {}
+    assets/js/swiper-bundle.min.js: {}
+    assets/js/anijs-min.js: {}
+    assets/js/anijs-helper-scrollreveal-min.js: {}
+    assets/js/custom.js: {}
+

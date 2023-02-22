@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{#{% for row in rows %}#}
+{#  {%#}
+{#    set row_classes = [#}
+{#      default_row_class ? 'views-row',#}
+{#    ]#}
+{#  %}#}
+{#  {{ dump(row) }}#}
+{#  <p><b>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_privacy_policy }}'] }}</b></p>#}
+{#  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>#}
+{#  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_sub_heading }}'] }}</p>#}
+{#  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_link_button }}'] }}</p>#}
+{#  <p>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}</p>#}
+
+{#{% endfor %}#}
+{% for row in rows %}
+  <div class="row align-items-center justify-content-center justify-content-md-start footer-bot">
+    <div class="col-lg-8">
+      <ul class="nav">
+        <li class="nav-item"><a href="#" class="nav-link text-muted">{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_privacy_policy }}'] }}</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-muted">{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_terms_condition }}'] }}</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-muted">{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_cookie_policy }}'] }}</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-muted">{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_sitemap }}'] }}</a></li>
+      </ul>
+    </div>
+    <div class="col-lg-4 text-copy">
+      &copy; {{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_rights }}'] }}
+    </div>
+  </div>
+{% endfor %}

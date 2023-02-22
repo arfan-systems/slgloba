@@ -1,0 +1,51 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+@use '../components/animations' as *;
+@use '../components/typography' as *;
+
+.btn-rounded {
+    position: relative;
+    padding: rem(16px) rem(50px);
+    font-family: $font-pjs;
+    font-size: rem(14px);
+    line-height: rem(16px);
+    font-weight: 400;
+    margin: 0;
+    border: 1px solid rgba($white, 1);
+    background-color: $white;
+    display: block;
+    border-radius: 5px;
+    color: $text-secondary; 
+
+    span {
+        position: absolute;
+        background-color: transparent;
+        width: 2.5rem;
+        height: 2.5rem;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+
+        i {
+            color: $white;
+            font-size: rem(12px);
+            line-height: 2.5rem;
+        }
+
+    }
+
+    &:hover {
+        @include gradient;
+        color: $white;
+
+        span {
+            background-color: transparent;
+        }
+    }
+
+    &.btn-black{
+        border: 1px solid rgba($text-secondary, 1);
+        background-color: $text-secondary;
+        color: $white; 
+    }
+}

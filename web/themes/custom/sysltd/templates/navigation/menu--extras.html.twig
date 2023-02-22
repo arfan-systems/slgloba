@@ -18,12 +18,13 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-{% import _self as menus %}
+{#{% import _self as menus %}#}
 
 {#
   We call a macro which calls itself to render the full tree.
   @see https://twig.symfony.com/doc/3.x/tags/macro.html
 #}
+{#
 {{ menus.menu_links(items, attributes, 0) }}
 
 {% macro menu_links(items, attributes, menu_level) %}
@@ -35,7 +36,7 @@
       <ul>
     {% endif %}
     {% for item in items %}
-{#      {{ dump(item.content.field_position[0]["#markup"]) }}#}
+      {{ dump(item.content.field_position[0]["#markup"]) }}
 
       <li{{ item.attributes }}>
         {{ link(item.title, item.url) }} -- {{ item.content.field_position[0]["#markup"] }}
@@ -51,3 +52,295 @@
     </ul>
   {% endif %}
 {% endmacro %}
+#}
+<div>
+          <nav class="autohide navbar navbar-expand-lg navbar-dark primary-menu fixed-top" id="TopNavbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="" href="#">
+                  <img src="{{ directory ~ '/assets/images/sl-logo.svg' }}" alt="logo image">
+{#                  {{ logo }}#}
+                </a>
+                <a href="#" class="navbar-financial">
+                  <i class="icon-arrow-up"></i> €142.98-3.61%
+                </a>
+              </div>
+
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Services </a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                      <div class="container">
+                        <div class="row g-3 justify-content-center">
+                          <div class="col-12 col-lg-2">
+                            <div class="col-megamenu">
+                              <h6 class="title">Services</h6>
+                              <a href="#" class="title-link"><u>Explore</u>
+                                <svg fill="#000000" width="12px" height="12px" viewBox="0 0 256 256">
+                                  <path
+                                          d="M200,64V168a8,8,0,0,1-16,0V83.314L69.65674,197.65723a8.00018,8.00018,0,0,1-11.31348-11.31446L172.686,72H88a8,8,0,0,1,0-16H192A8.00039,8.00039,0,0,1,200,64Z" />
+                                </svg>
+                              </a>
+                            </div> <!-- col-megamenu.// -->
+                          </div><!-- end col-3 -->
+                          <div class="col-12 col-lg-3">
+                            <div class="col-megamenu">
+                              <ul class="list-unstyled">
+                                <li><a href="#">Digital</a></li>
+                                <li><a href="#">Cloud </a></li>
+                                <li><a href="#">Data & AI</a></li>
+                              </ul>
+                            </div> <!-- col-megamenu.// -->
+                          </div><!-- end col-3 -->
+                          <div class="col-12 col-lg-6">
+                            <div class="col-megamenu">
+                              <ul class="list-unstyled">
+                                <li><a href="#">Digital Infrastructure and security services</a></li>
+                                <li><a href="#">Emerging Technologies</a></li>
+                                <li><a href="#">Managed Services</a></li>
+                                <li><a href="#">Business Process Outsourcing</a></li>
+                              </ul>
+                            </div> <!-- col-megamenu.// -->
+                          </div>
+                        </div><!-- end row -->
+                      </div>
+
+                    </div> <!-- dropdown-mega-menu.// -->
+                  </li>
+                  <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Industries </a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                      <div class="container">
+                        <div class="row g-3 justify-content-center">
+                          <div class="col-12 col-lg-2">
+                            <div class="col-megamenu">
+                              <h6 class="title">Industries</h6>
+                              <a href="#" class="title-link"><u>Learn</u> More
+                                <svg fill="#000000" width="12px" height="12px" viewBox="0 0 256 256">
+                                  <path
+                                          d="M200,64V168a8,8,0,0,1-16,0V83.314L69.65674,197.65723a8.00018,8.00018,0,0,1-11.31348-11.31446L172.686,72H88a8,8,0,0,1,0-16H192A8.00039,8.00039,0,0,1,200,64Z" />
+                                </svg>
+                              </a>
+                            </div> <!-- col-megamenu.// -->
+                          </div><!-- end col-3 -->
+                          <div class="col-12 col-lg-5">
+                            <div class="col-megamenu">
+                              <ul class="list-unstyled">
+                                <li><a href="#">Telecommunication</a></li>
+                                <li><a href="#">Banking & Finance</a></li>
+                                <li><a href="#">Public</a></li>
+                                <li><a href="#">Healthcare and Pharmaceutical</a></li>
+                                <li><a href="#">Retail & CPG</a></li>
+                              </ul>
+                            </div> <!-- col-megamenu.// -->
+                          </div><!-- end col-3 -->
+                          <div class="col-12 col-lg-5">
+                            <div class="col-megamenu industry-nav-image">
+                              <div class="placeholder image"></div>
+                              <p>A globally acclaimed telco operator redefines its customer experience by revamping their</p>
+                              <a href="#" class="title-link"><u>Learn</u> More
+                                <svg fill="#000000" width="12px" height="12px" viewBox="0 0 256 256">
+                                  <path
+                                          d="M200,64V168a8,8,0,0,1-16,0V83.314L69.65674,197.65723a8.00018,8.00018,0,0,1-11.31348-11.31446L172.686,72H88a8,8,0,0,1,0-16H192A8.00039,8.00039,0,0,1,200,64Z" />
+                                </svg>
+                              </a>
+                            </div> <!-- col-megamenu.// -->
+                          </div>
+                        </div><!-- end row -->
+                      </div>
+
+                    </div> <!-- dropdown-mega-menu.// -->
+                  </li>
+                  <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Insights </a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                      <div class="container">
+                        <div class="row g-3 justify-content-center">
+                          <div class="col-12 col-lg-2">
+                            <div class="col-megamenu">
+                              <h6 class="title">Insights</h6>
+                            </div> <!-- col-megamenu.// -->
+                          </div><!-- end col-3 -->
+                          <div class="col-12 col-lg-5">
+                            <div class="col-megamenu">
+                              <ul class="list-unstyled">
+                                <li><a href="#">Success Stories/Case studies</a></li>
+                                <li><a href="#">White papers and publications</a></li>
+                              </ul>
+                            </div> <!-- col-megamenu.// -->
+                          </div><!-- end col-3 -->
+                          <div class="col-12 col-lg-5">
+                            <div class="col-megamenu">
+                              <ul class="list-unstyled">
+                                <li><a href="#">Sustainability/Social Impact/CSR</a></li>
+                                <li><a href="#">Newsroom</a></li>
+                              </ul>
+                            </div> <!-- col-megamenu.// -->
+                          </div>
+                        </div><!-- end row -->
+                      </div>
+
+                    </div> <!-- dropdown-mega-menu.// -->
+                  </li>
+                  <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> About </a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                      <div class="container">
+                        <div class="row g-3 justify-content-center">
+                          <div class="col-12 col-lg-2">
+                            <div class="col-megamenu">
+                              <h6 class="title">About</h6>
+                            </div> <!-- col-megamenu.// -->
+                          </div><!-- end col-3 -->
+                          <div class="col-12 col-lg-5">
+                            <div class="col-megamenu">
+                              <ul class="list-unstyled">
+                                <li><a href="#">Who we are</a></li>
+                                <li><a href="#">What we believe</a></li>
+                                <li><a href="#">community Impact</a></li>
+                              </ul>
+                            </div> <!-- col-megamenu.// -->
+                          </div><!-- end col-3 -->
+                          <div class="col-12 col-lg-5">
+                            <div class="col-megamenu">
+                              <ul class="list-unstyled">
+                                <li><a href="#">Alliances</a></li>
+                              </ul>
+                            </div> <!-- col-megamenu.// -->
+                          </div>
+                        </div><!-- end row -->
+                      </div>
+
+                    </div> <!-- dropdown-mega-menu.// -->
+                  </li>
+                </ul>
+                <div class="nav-global">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown has-megamenu">
+                      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> People </a>
+                      <div class="dropdown-menu megamenu" role="menu">
+                        <div class="container">
+                          <div class="row g-3 justify-content-center">
+                            <div class="col-12 col-lg-2">
+                              <div class="col-megamenu">
+                                <h6 class="title">Careers</h6>
+                                <a href="#" class="title-link"><u>Apply</u> Wtih Us
+                                  <svg fill="#000000" width="12px" height="12px" viewBox="0 0 256 256">
+                                    <path
+                                            d="M200,64V168a8,8,0,0,1-16,0V83.314L69.65674,197.65723a8.00018,8.00018,0,0,1-11.31348-11.31446L172.686,72H88a8,8,0,0,1,0-16H192A8.00039,8.00039,0,0,1,200,64Z" />
+                                  </svg>
+                                </a>
+                              </div> <!-- col-megamenu.// -->
+                            </div><!-- end col-3 -->
+                            <div class="col-12 col-lg-5">
+                              <div class="col-megamenu">
+                                <ul class="list-unstyled">
+                                  <li><a href="#">Work with us</a></li>
+                                  <li><a href="#">Life at Systems</a></li>
+                                  <li><a href="#">Inclusive and diversity</a></li>
+                                </ul>
+                              </div> <!-- col-megamenu.// -->
+                            </div><!-- end col-3 -->
+                            <div class="col-12 col-lg-5">
+                              <div class="col-megamenu industry-nav-image">
+                                <div class="placeholder image"></div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia praesentium tempore
+                                  placeat.</p>
+                                <a href="#" class="title-link"><u>Learn</u> More
+                                  <svg fill="#000000" width="12px" height="12px" viewBox="0 0 256 256">
+                                    <path
+                                            d="M200,64V168a8,8,0,0,1-16,0V83.314L69.65674,197.65723a8.00018,8.00018,0,0,1-11.31348-11.31446L172.686,72H88a8,8,0,0,1,0-16H192A8.00039,8.00039,0,0,1,200,64Z" />
+                                  </svg>
+                                </a>
+                              </div> <!-- col-megamenu.// -->
+                            </div>
+                          </div><!-- end row -->
+                        </div>
+
+                      </div> <!-- dropdown-mega-menu.// -->
+                    </li>
+                    <li class="nav-item dropdown has-megamenu">
+                      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Investors </a>
+                      <div class="dropdown-menu megamenu" role="menu">
+                        <div class="container">
+                          <div class="row g-3 justify-content-center">
+                            <div class="col-12 col-lg-2">
+                              <div class="col-megamenu">
+                                <h6 class="title">Investors</h6>
+                              </div> <!-- col-megamenu.// -->
+                            </div><!-- end col-3 -->
+                            <div class="col-12 col-lg-5">
+                              <div class="col-megamenu">
+                                <ul class="list-unstyled">
+                                  <li><a href="#">Company Profile</a></li>
+                                  <li><a href="#">Governance</a></li>
+                                  <li><a href="#">Investor Relation</a></li>
+                                </ul>
+                              </div> <!-- col-megamenu.// -->
+                            </div><!-- end col-3 -->
+                            <div class="col-12 col-lg-5">
+                              <div class="col-megamenu">
+                                <ul class="list-unstyled">
+                                  <li><a href="#">Board of Directors</a></li>
+                                  <li><a href="#">Media</a></li>
+                                </ul>
+                              </div> <!-- col-megamenu.// -->
+                            </div>
+                          </div><!-- end row -->
+                        </div>
+
+                      </div> <!-- dropdown-mega-menu.// -->
+                    </li>
+                    <li class="nav-item nav-search">
+                <span class="search-wrap">
+                  <img src="{{ directory ~ '/assets/images/nav-search.svg' }}" alt="Search">
+                </span>
+                    </li>
+                    <li class="nav-item dropdown has-megamenu">
+                      <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                        <img src="{{ directory ~ '/assets/images/uae-flag.svg' }}" class="flag rounded-circle" alt="UAE Flag">
+                      </a>
+                      <div class="dropdown-menu megamenu" role="menu">
+                        <div class="container">
+                          <div class="row g-3 justify-content-center">
+                            <div class="col-12 col-lg-4">
+                              <div class="col-megamenu">
+                                <h6 class="title">Global Footprint</h6>
+                              </div> <!-- col-megamenu.// -->
+                            </div><!-- end col-3 -->
+                            <div class="col-12 col-lg-4">
+                              <div class="col-megamenu">
+                                <ul class="list-unstyled mt-3">
+                                  <li><a href="#"><small>MEA</small> United Arab Emirates</a></li>
+                                  <li><a href="#">Egypt</a></li>
+                                  <li><a href="#">South Africa</a></li>
+                                  <li><a href="#"><small>APAC</small> Austraila</a></li>
+                                </ul>
+                              </div> <!-- col-megamenu.// -->
+                            </div><!-- end col-3 -->
+                            <div class="col-12 col-lg-4">
+                              <div class="col-megamenu">
+                                <ul class="list-unstyled mt-3">
+                                  <li><a href="#"><small>KSA & QATAR</small> Kingdom of Saudia Arabia</a></li>
+                                  <li><a href="#">Qatar</a></li>
+                                  <li><a href="#">Pakistan</a></li>
+                                </ul>
+                              </div> <!-- col-megamenu.// -->
+                            </div>
+                          </div><!-- end row -->
+                        </div>
+
+                      </div> <!-- dropdown-mega-menu.// -->
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>

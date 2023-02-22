@@ -98,3 +98,12 @@ function processMenu(array &$items) {
     }
     return $items;
 }
+function sysltd_preprocess_page(&$variables) {
+  $variables['logo'] = theme_get_setting('logo');
+  $variables['revenue'] = theme_get_setting('revenue');
+  $variables['facebook'] = theme_get_setting('facebook');
+  $variables['twitter'] = theme_get_setting('twitter');
+  $variables['instagram'] = theme_get_setting('instagram');
+  $variables['linkedin'] = theme_get_setting('linkedin');
+  $variables['youtube'] = theme_get_setting('youtube');
+}

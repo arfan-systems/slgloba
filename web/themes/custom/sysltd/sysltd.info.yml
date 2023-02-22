@@ -16,7 +16,6 @@ libraries-override:
 regions:
   header: Header
   search_modal: 'Search Modal'
-  banner: 'Banner'
   primary_menu: 'Primary menu'
   secondary_menu: 'Secondary menu'
   page_top: 'Page top'

@@ -15,23 +15,94 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-<hr style="width:100%;text-align:left;margin-left:0">
-This is insight block tpl file
-{% if title %}
-  <h3>{{ title }}</h3>
-{% endif %}
-{% for row in rows %}
-  {%
-    set row_classes = [
-      default_row_class ? 'views-row',
-    ]
-  %}
-  <p><b>Type</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_content_type }}'] }}</p>
-  <p><b>Sub Heading</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_sub_heading }}'] }}</p>
-  <p><b>Sub Heading 2</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_section }}'] }}</p>
-  <p><b>Title</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</p>
 
-  <p><b>Description</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>
-  <p><b>Link Text</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_button_text }}'] }}</p>
-  <p><b>Image path</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}</p>
-{% endfor %}
+
+{#{% if title %}#}
+{#  <h3>{{ title }}</h3>#}
+{#{% endif %}#}
+{#{% for row in rows %}#}
+{#  {%#}
+{#    set row_classes = [#}
+{#      default_row_class ? 'views-row',#}
+{#    ]#}
+{#  %}#}
+{#  <p><b>Type</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_content_type }}'] }}</p>#}
+{#  <p><b>Sub Heading</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_sub_heading }}'] }}</p>#}
+{#  <p><b>Sub Heading 2</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_section }}'] }}</p>#}
+{#  <p><b>Title</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</p>#}
+
+{#  <p><b>Description</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>#}
+{#  <p><b>Link Text</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_button_text }}'] }}</p>#}
+{#  <p><b>Image path</b> ={{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}</p>#}
+{#{% endfor %}#}
+<section id="home-case-studies" class="home-case-studies-section">
+  <div class="swiper-container" data-anijs="if: scroll, on: window, do: fadeIn animated, before: scrollReveal">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide slide1">
+        <div class="container-fluid p-0">
+          <div class="row m-0">
+            <div class="col-md-7 p-0 slide-content-wrap">
+              <div class="slide-content text-white align-items-center">
+                <small>White Paper</small>
+                <h2 class="title">The promise of advanced connectivity by 5G</h2>
+                <div class="description">
+                  Data analytics is crucial to realize the full value of 5th generation communication landscape.
+                </div>
+                <a href="#" class="text-link-arrow fromLeft white">
+                  Learn More
+                  <span class="arrow-right">&nbsp;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide slide2">
+        <div class="container-fluid p-0">
+          <div class="row m-0">
+            <div class="col-md-7 p-0 slide-content-wrap">
+              <div class="slide-content text-white align-items-center">
+                <small>Case Study</small>
+                <h2 class="title">Automating telecommunications </h2>
+                <div class="description">
+                  Revitalizing legacy lead generation engine with all-out automation across all channels.
+                </div>
+                <a href="#" class="text-link-arrow fromLeft white">
+                  Learn More
+                  <span class="arrow-right">&nbsp;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide slide3">
+        <div class="container-fluid p-0">
+          <div class="row m-0">
+            <div class="col-md-7 p-0 slide-content-wrap">
+              <div class="slide-content text-white align-items-center">
+                <small>Case Study</small>
+                <h2 class="title">Enhancing Enterprise Mobility through customer-inclusive app</h2>
+                <div class="description">
+                  A globally acclaimed telco operator redefines its customer experience by revamping their mobile application to enhance enterprise mobility.
+                </div>
+                <a href="#" class="text-link-arrow fromLeft white">
+                  Learn More
+                  <span class="arrow-right">&nbsp;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+  </div>
+</section>
