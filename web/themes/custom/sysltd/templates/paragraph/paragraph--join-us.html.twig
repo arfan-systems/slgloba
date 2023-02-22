@@ -40,32 +40,16 @@
 #}
 {%
   set classes = [
+    'home-careers-section',
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
-{#{% block paragraph %}#}
-{#  <div{{ attributes.addClass(classes) }}>#}
-{#    {% block content %}#}
-{#      {% if content.field_title %}#}
-{#        <b>Title</b> = {{ content.field_title[0]['#context']['value'] }}<br>#}
-{#      {% endif %}#}
-{#      {% if content.field_description %}#}
-{#        <b>Description</b> = {{ content.field_description[0]['#context']['value'] }}<br>#}
-{#      {% endif %}#}
-{#      {% if content.field_link %}#}
-{#        <b>Link</b> = {{ content.field_link[0]['#context']['value'] }}<br>#}
-{#      {% endif %}#}
-{#      {% if content.field_image %}#}
-{#        <b>Image</b> = {{ content.field_image[0]['#context']['value'] }}#}
-{#      {% endif %}#}
-{#      {{ content }}#}
-{#    {% endblock %}#}
-{#  </div>#}
-{#{% endblock paragraph %}#}
-<section id="home-careers" class="home-careers-section">
+{% block paragraph %}
+<section id="home-careers" {{ attributes.addClass(classes) }}>
+    {% block content %}
     <video autoplay muted loop id="home-careers-video">
         <source src="{{ directory ~ '/assets/videos/home-careers.mp4' }}" type="video/mp4">
         Your browser does not support HTML5 video.
@@ -75,13 +59,15 @@
              data-anijs="if: scroll, on: window, do: zoomIn animated, before: scrollReveal">
             <div class="col-12 home-careers-section--content text-center text-white align-items-center">
                 <div class="title-wrap">
-                    <h2 class="title">Your next starts right here</h2>
+                    <h2 class="title">{{ content.field_title[0]['#context']['value'] }}</h2>
                     <button type="button" class="btn-rounded btn-join-us" data-anijs="if: mouseover, do: pulse animated">
-                        Join Us
+                        {{ content.field_link[0]['#title'] }}
                     </button>
 
                 </div>
             </div>
         </div>
     </div>
+    {% endblock %}
 </section>
+{% endblock paragraph %}

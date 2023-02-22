@@ -37,10 +37,10 @@
          data-anijs="if: scroll, on: window, do: zoomIn animated, before: scrollReveal">
       <div class="col-12 home-help-section--content text-center">
         <div class="title-wrap">
-          <h2 class="title">How can we help you?</h2>
-          <div class="description">Everything we do is motivated by the desire to solve the problems of today</div>
+          <h2 class="title">{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ info }}'] }}</h2>
+          <div class="description">{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</div>
           <button type="button" class="btn-rounded btn-lets-work" data-anijs="if: mouseover, do: pulse animated">
-            Let's work Togethar
+            {{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_link_button }}'] }}
           </button>
 
         </div>

@@ -40,76 +40,26 @@
 #}
 {%
   set classes = [
+    'home-numbers-section counter',
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
-{#{% block paragraph %}#}
-{#  <div{{ attributes.addClass(classes) }}>#}
-{#    {% block content %}#}
-
-{#        {% if content.field_title %}#}
-{#            <b>Title</b> - {{ content.field_title[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_title %}#}
-{#            <b>Description</b> - {{ content.field_description[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_link %}#}
-{#            <b>Link</b> - <a href="{{ content.field_link[0].url }}"> {{ content.field_link[0]["#title"] }}</a><br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_years %}#}
-{#            <b>Years</b> - {{ content.field_years[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_years_description %}#}
-{#            <b>Years Description</b> - {{ content.field_years_description[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_employee %}#}
-{#            <b>Employee</b> - {{ content.field_employee[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_employee_description %}#}
-{#            <b>Employee Description</b> - {{ content.field_employee_description[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_continents %}#}
-{#            <b>Continents</b> - {{ content.field_continents[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_continents_description %}#}
-{#            <b>Continents Description</b> - {{ content.field_continents_description[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_clients %}#}
-{#            <b>Clients</b> - {{ content.field_clients[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        {% if content.field_clients_description %}#}
-{#            <b>Clients Description</b> - {{ content.field_clients_description[0]['#context']['value'] }}<br>#}
-{#        {% endif %}#}
-
-{#        #}{#      {{ content }}#}
-{#    {% endblock %}#}
-{#  </div>#}
-{#{% endblock paragraph %}#}
-
-<section id="home-numbers" class="home-numbers-section counter">
+{% block paragraph %}
+<section id="home-numbers" {{ attributes.addClass(classes) }}>
+    {% block content %}
     <div class="container">
         <div class="row" data-anijs="if: scroll, on: window, do: bounceInUp animated, before: scrollReveal">
             <div class="col-lg-6 home-numbers-section--title">
                 <div class="title-wrap">
-                    <h2 class="title">Translating technology into positive impact</h2>
+                    <h2 class="title">{% if content.field_title %}{{ content.field_title[0]['#context']['value'] }}{% endif %}</h2>
                     <div class="description">
-                        Our innovative approach to technology allows us to deliver exceptional experiences that drive growth and success for all stakeholders. Let's rise to new heights with the power of digital transformation.
+                        {% if content.field_description %}{{ content.field_description[0]['#context']['value'] }}{% endif %}
                     </div>
                     <a href="#" class="text-link-arrow fromLeft">
-                        Learn More
+                        {% if content.field_link %}{{ content.field_link[0]["#title"] }}{% endif %}
                         <span class="arrow-right">&nbsp;</span>
                     </a>
                 </div>
@@ -119,24 +69,26 @@
                     <div
                             class="col-md-6 number left number-padding-right number-padding-bottom">
                         <h3 id="numYears"></h3>
-                        <p>Years of continual innovation</p>
+                        <p>{% if content.field_years_description %}{{ content.field_years_description[0]['#context']['value'] }}{% endif %}</p>
                     </div>
                     <div class="col-md-6 number right number-padding-left number-padding-bottom">
                         <h3 id="numEmp"></h3>
-                        <p>Change makers driving innovation</p>
+                        <p>{% if content.field_employee_description %}{{ content.field_employee_description[0]['#context']['value'] }}{% endif %}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 number left number-padding-right number-padding-top">
                         <h3 id="numConti"></h3>
-                        <p>Continents with our presence</p>
+                        <p>{% if content.field_continents_description %}{{ content.field_continents_description[0]['#context']['value']|raw }}{% endif %}</p>
                     </div>
                     <div class="col-md-6 number right number-padding-left number-padding-top">
                         <h3 id="numProjects"></h3>
-                        <p>Fulfilled promises of enterprise reinvention</p>
+                        <p>{% if content.field_clients_description %}{{ content.field_clients_description[0]['#context']['value']|raw }}{% endif %}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {% endblock %}
 </section>
+{% endblock paragraph %}

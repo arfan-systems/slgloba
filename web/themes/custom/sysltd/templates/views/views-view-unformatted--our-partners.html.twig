@@ -15,39 +15,36 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-{#{% if title %}#}
-{#  <h3>{{ title }}</h3>#}
-{#{% endif %}#}
-{#{% for row in rows %}#}
-{#  {%#}
-{#    set row_classes = [#}
-{#      default_row_class ? 'views-row',#}
-{#    ]#}
-{#  %}#}
-{#  <p><b>Title</b> = {{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</p>#}
-{#  {% set images = row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}']|split(',') %}#}
-{#  {% for img in images %}#}
-{#    <b>Image</b> ={{ img }}<br />#}
-{#  {% endfor %}#}
-{#{% endfor %}#}
+{% for row in rows %}
+    {%
+      set row_classes = [
+        default_row_class ? 'views-row',
+        'home-partners-section'
+      ]
+    %}
+  <section id="home-partners" {{ row.attributes.addClass(row_classes) }}>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 home-partners-section--content text-center">
+          <div class="title-wrap text-center">
+            <div data-anijs="if: scroll, on: window, do: zoomIn animated, before: scrollReveal">
+              <h2 class="title">{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</h2>
+            </div>
+            <div class="partners-logos">
+              {#  {% set images = row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}']|split(',') %}#}
+              {#  {% for img in images %}#}
+              {#    <b>Image</b> ={{ img }}<br />#}
+              {#  {% endfor %}#}
 
-<section id="home-partners" class="home-partners-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 home-partners-section--content text-center">
-        <div class="title-wrap text-center">
-          <div data-anijs="if: scroll, on: window, do: zoomIn animated, before: scrollReveal">
-            <h2 class="title">We rethink business growth for you through our collective experience with strategic ecosystem</h2>
-          </div>
-          <div class="partners-logos">
-            <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-microsoft.svg' }}" alt="Microsoft">
-            <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-ibm.svg' }}" alt="IBM">
-            <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-sap.svg' }}" alt="SAP">
-            <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-temenos.svg' }}" alt="Temenos">
-            <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-aws.svg' }}" alt="aws">
+              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-microsoft.svg' }}" alt="Microsoft">
+              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-ibm.svg' }}" alt="IBM">
+              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-sap.svg' }}" alt="SAP">
+              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-temenos.svg' }}" alt="Temenos">
+              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-aws.svg' }}" alt="aws">
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+{% endfor %}
