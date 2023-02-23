@@ -20,26 +20,26 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-      {% for row in rows %}
+      {% for key, item in rows %}
         <div class="swiper-slide slide{{ loop.index }}">
-        <div class="container-fluid p-0">
+          <div class="container-fluid p-0">
           <div class="row m-0">
             <div class="col-md-7 p-0 slide-content-wrap">
               <div class="slide-content text-white align-items-center">
-                <small>{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_content_type }}'] }}</small>
-                <h2 class="title">{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_section }}'] }}</h2>
+                <small>{{ view.style_plugin.getField(key, 'field_content_type') }}</small>
+                <h2 class="title">{{ view.style_plugin.getField(key, 'field_section') }}</h2>
                 <div class="description">
-                  {{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ body }}']|slice(0, 100)|raw }}
+                  {{ view.style_plugin.getField(key, 'body') }}
                 </div>
                 <a href="#" class="text-link-arrow fromLeft white">
-                  {{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_button_text }}'] }}
+                  {{ view.style_plugin.getField(key, 'field_button_text') }}
                   <span class="arrow-right">&nbsp;</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        </div>
       {% endfor %}
     </div>
     <!-- If we need pagination -->
