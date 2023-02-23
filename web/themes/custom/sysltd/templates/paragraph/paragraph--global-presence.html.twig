@@ -58,10 +58,12 @@
                     <div class="description">
                         {% if content.field_description %}{{ content.field_description[0]['#context']['value'] }}{% endif %}
                     </div>
-                    <a href="#" class="text-link-arrow fromLeft">
-                        {% if content.field_link %}{{ content.field_link[0]["#title"] }}{% endif %}
-                        <span class="arrow-right">&nbsp;</span>
-                    </a>
+                    {% if content.field_button_text %}
+                        <a href="{{ content.field_button_link[0]['#context']['value'] }}" class="text-link-arrow fromLeft">
+                            {{ content.field_button_text[0]['#context']['value'] }}
+                            <span class="arrow-right">&nbsp;</span>
+                        </a>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-lg-6 home-numbers-section--list">

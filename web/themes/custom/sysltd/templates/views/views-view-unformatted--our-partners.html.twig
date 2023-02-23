@@ -31,16 +31,10 @@
               <h2 class="title">{{ row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</h2>
             </div>
             <div class="partners-logos">
-              {#  {% set images = row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}']|split(',') %}#}
-              {#  {% for img in images %}#}
-              {#    <b>Image</b> ={{ img }}<br />#}
-              {#  {% endfor %}#}
-
-              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-microsoft.svg' }}" alt="Microsoft">
-              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-ibm.svg' }}" alt="IBM">
-              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-sap.svg' }}" alt="SAP">
-              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-temenos.svg' }}" alt="Temenos">
-              <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/logo-aws.svg' }}" alt="aws">
+                {% set images = row.content["#view"].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}']|split(',') %}
+                {% for img in images %}
+                  <img class="image" data-anijs="if: scroll, on: window, do: pulse animated, before: scrollReveal" src="{{ img|trim }}" alt="Microsoft">
+                {% endfor %}
             </div>
           </div>
         </div>

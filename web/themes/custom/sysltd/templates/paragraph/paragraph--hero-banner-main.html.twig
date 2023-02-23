@@ -51,8 +51,10 @@
     <section id="home-hero" {{ attributes.addClass(classes) }}>
         {% block content %}
             <video autoplay muted loop id="home-hero-video">
-                <source src="{{ directory ~ '/assets/videos/home-hero.mp4' }}" type="video/mp4">
-                Your browser does not support HTML5 video.
+                {% if content.field_video %}
+                    <source src="{{ content.field_video[0]['#markup'] }}" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                {% endif %}
             </video>
             <div class="container">
                 <div class="row align-items-center text-white">
@@ -69,15 +71,15 @@
                             <div class="home-hero-display--description">
                                 <div class="">
                                     {% if content.field_description %}
-                                        {{ content.field_description[0]['#context']['value'] }}
+                                        {{ content.field_description[0]['#context']['value']|raw }}
                                     {% endif %}
                                 </div>
                             </div>
                         </div>
-                        {% if content.field_link %}
+                        {% if content.field_button_text %}
                             <button type="button" class="btn-rounded home-hero-display--lets-talk"
                                     data-anijs="if: mouseover, do: pulse animated">
-                                {{ content.field_link[0]["#title"] }}
+                                {{ content.field_button_text[0]["#context"]['value'] }}
                             </button>
                         {% endif %}
                     </div>

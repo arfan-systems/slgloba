@@ -50,24 +50,27 @@
 {% block paragraph %}
 <section id="home-careers" {{ attributes.addClass(classes) }}>
     {% block content %}
-    <video autoplay muted loop id="home-careers-video">
-        <source src="{{ directory ~ '/assets/videos/home-careers.mp4' }}" type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video>
-    <div class="container">
-        <div class="row align-items-center"
-             data-anijs="if: scroll, on: window, do: zoomIn animated, before: scrollReveal">
-            <div class="col-12 home-careers-section--content text-center text-white align-items-center">
-                <div class="title-wrap">
-                    <h2 class="title">{{ content.field_title[0]['#context']['value'] }}</h2>
-                    <button type="button" class="btn-rounded btn-join-us" data-anijs="if: mouseover, do: pulse animated">
-                        {{ content.field_link[0]['#title'] }}
-                    </button>
-
+        <video autoplay muted loop id="home-careers-video">
+            {% if content.field_video %}
+                <source src="{{ content.field_video[0]['#markup'] }}" type="video/mp4">
+                Your browser does not support HTML5 video.
+            {% endif %}
+        </video>
+        <div class="container">
+            <div class="row align-items-center"
+                 data-anijs="if: scroll, on: window, do: zoomIn animated, before: scrollReveal">
+                <div class="col-12 home-careers-section--content text-center text-white align-items-center">
+                    <div class="title-wrap">
+                        <h2 class="title">{{ content.field_title[0]['#context']['value'] }}</h2>
+                        {% if content.field_button_text %}
+                            <button type="button" class="btn-rounded btn-join-us" data-anijs="if: mouseover, do: pulse animated">
+                                {{ content.field_button_text[0]["#context"]['value'] }}
+                            </button>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     {% endblock %}
 </section>
 {% endblock paragraph %}

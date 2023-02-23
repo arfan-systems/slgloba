@@ -88,6 +88,7 @@ const options = {
     threshold: 0.5
 }
 
+/*
 let Observer = new IntersectionObserver(
     function (entries, Observer) {
         entries.forEach(entry => {
@@ -142,3 +143,4 @@ let Observer = new IntersectionObserver(
 elements.forEach(element => {
     Observer.observe(element);
 })
+*/

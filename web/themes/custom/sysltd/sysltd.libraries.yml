@@ -13,4 +13,5 @@ style:
     assets/js/anijs-min.js: {}
     assets/js/anijs-helper-scrollreveal-min.js: {}
     assets/js/custom.js: {}
+    assets/js/sysltd.js: {}
 

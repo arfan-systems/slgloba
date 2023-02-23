@@ -58,11 +58,12 @@
             <div class="container">
               <div class="navbar-brand">
                 <a class="" href="#">
-                  <img src="{{ directory ~ '/assets/images/sl-logo.svg' }}" alt="logo image">
-{#                  {{ logo }}#}
+                  {% if logo.path %}
+                    <img src="{{ logo.path }}" alt="logo image">
+                  {% endif %}
                 </a>
                 <a href="#" class="navbar-financial">
-                  <i class="icon-arrow-up"></i> €142.98-3.61%
+                  <i class="icon-arrow-up"></i> {{ revenue }}
                 </a>
               </div>
 

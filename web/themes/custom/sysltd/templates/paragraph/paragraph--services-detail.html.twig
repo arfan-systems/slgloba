@@ -61,6 +61,12 @@
                     <span class="arrow-right">&nbsp;</span>
                 </a>
             {% endif %}
+            {% if content.field_button_text %}
+                <a href="{{ content.field_button_link[0]['#context']['value'] }}" class="text-link-arrow fromLeft">
+                    {{ content.field_button_text[0]['#context']['value'] }}
+                    <span class="arrow-right">&nbsp;</span>
+                </a>
+            {% endif %}
         </li>
     {% endblock %}
 {% endblock paragraph %}

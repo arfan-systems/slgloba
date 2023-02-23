@@ -55,7 +55,7 @@
             <div class="col-12 col-md-6 home-services-section--title">
                 <div class="title-wrap">
                     <small>{% if content.field_title %}{{ content.field_title[0]['#context']['value'] }}{% endif %}</small>
-                    <img class="shape-image" data-anijs="if: scroll, on: window, do: fadeInLeft animated, before: scrollReveal" src="{{ directory ~ '/assets/images/home/s-shape-opacity.png' }}" alt="Shape">
+                    <img class="shape-image" data-anijs="if: scroll, on: window, do: fadeInLeft animated, before: scrollReveal" src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" alt="Shape">
                     <h2 class="title">{% if content.field_description %}{{ content.field_description[0]['#context']['value'] }}{% endif %}</h2>
                     <div class="description">
                     </div>

@@ -50,8 +50,10 @@ function sysltd_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginIn
  */
 
 function sysltd_preprocess_menu(&$variables) {
-  $updated_items     = processMenu($variables['items']);
-  $variables['items']   = $updated_items;
+    $updated_items        = processMenu($variables['items']);
+    $variables['items']   = $updated_items;
+    $variables['logo']    = theme_get_setting('logo');
+    $variables['revenue'] = theme_get_setting('revenue');
 }
 
 /**
@@ -99,11 +101,30 @@ function processMenu(array &$items) {
     return $items;
 }
 function sysltd_preprocess_page(&$variables) {
-  $variables['logo'] = theme_get_setting('logo');
-  $variables['revenue'] = theme_get_setting('revenue');
-  $variables['facebook'] = theme_get_setting('facebook');
-  $variables['twitter'] = theme_get_setting('twitter');
-  $variables['instagram'] = theme_get_setting('instagram');
-  $variables['linkedin'] = theme_get_setting('linkedin');
-  $variables['youtube'] = theme_get_setting('youtube');
+  $variables['facebook']    = theme_get_setting('facebook');
+  $variables['twitter']     = theme_get_setting('twitter');
+  $variables['instagram']   = theme_get_setting('instagram');
+  $variables['linkedin']    = theme_get_setting('linkedin');
+  $variables['youtube']     = theme_get_setting('youtube');
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function sysltd_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $paragraph_type = $paragraph->getType();
+  if($paragraph_type == 'global_presence'){
+      $field_clients    = $paragraph->get('field_clients')->getValue()[0]['value'];
+      $field_continents = $paragraph->get('field_continents')->getValue()[0]['value'];
+      $field_employee   = $paragraph->get('field_employee')->getValue()[0]['value'];
+      $field_years      = $paragraph->get('field_years')->getValue()[0]['value'];
+
+      $variables['#attached']['drupalSettings']['global_presence'] = [
+                                                                      'field_clients'=>$field_clients,
+                                                                      'field_continents'=>$field_continents,
+                                                                      'field_employee'=>$field_employee,
+                                                                      'field_years'=>$field_years
+                                                                      ];
+  }
 }
